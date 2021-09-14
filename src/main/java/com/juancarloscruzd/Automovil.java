@@ -8,6 +8,10 @@ public class Automovil extends Vehiculo {
 
     @Override
     public String reabastecer(double liters) {
+        if (liters <= 0 ) {
+            return "Debe reabastecer el automovil con algo de gasolina, intente con un valor mayor a cero";
+        }
+
         double freeSpace = this.capacidad - this.cantidad;
 
         if (liters > freeSpace)
@@ -26,6 +30,10 @@ public class Automovil extends Vehiculo {
     public String imprimirViaje(double viaje) {
         double consumoViaje = viaje * consumo;
         double remanenteFuel = cantidad - consumoViaje;
+
+        if (viaje <= 0){
+            return "El automovil no puede moverse si no ingresa un valor mayor a cero";
+        }
 
         if(remanenteFuel > 0) {
             return "El vehiculo viajo: " + viaje + " Km y aun tiene " + remanenteFuel + " de combustible";
